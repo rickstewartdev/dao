@@ -16,11 +16,11 @@ const deployBox: DeployFunction = async function (
     args: [],
     log: true,
   });
-  const boxContract = await ethers.getContract("Box", box.address);
+  const boxContract = await ethers.getContractAt("Box", box.address);
   const timeLock = await ethers.getContract("TimeLock");
   const transferOwnerTx = await boxContract.transferOwnership(timeLock.address);
   await transferOwnerTx.wait(1);
-  log("You done guud!");
+  log("You dun guud!");
 };
 
 export default deployBox;
